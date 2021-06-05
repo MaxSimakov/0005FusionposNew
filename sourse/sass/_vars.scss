@@ -1,5 +1,5 @@
 $em-base: 16px;
-$small: rem(14);
+$small: rem(13);
 $url: '../img/';
 $path2: '@2x/';
 $path1: '@1x/';
@@ -37,12 +37,12 @@ $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
+$gray-400: #C9C9C9 !default;
 $gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
+$gray-600: #7D7D7D !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-900: #404040 !default;
 $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -61,10 +61,10 @@ $grays: ("100": $gray-100,
 // fusv-enable
 
 // scss-docs-start color-variables
-$blue: #0d6efd !default;
+$blue: #13BBF2 !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
-$pink: #d63384 !default;
+$pink: #FF5274 !default;
 $red: #dc3545 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
@@ -95,9 +95,10 @@ $secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
-$danger: $red !default;
+$danger: $pink !default;
 $light: $gray-100 !default;
 $dark: $gray-900 !default;
+$gray: $gray-600 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -257,7 +258,7 @@ $variable-prefix: bs- !default;
 // The gradient which is added to components if `$enable-gradients` is `true`
 // This gradient is also added to elements with `.bg-gradient`
 // scss-docs-start variable-gradient
-$gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
+$gradient: linear-gradient(135deg, #1DC4F4 0%, #05AEF1 100%) !default;
 // scss-docs-end variable-gradient
 
 // Spacing
@@ -303,7 +304,7 @@ $body-text-align: null !default;
 // Style anchor elements.
 
 $link-color: $primary !default;
-$link-decoration: underline !default;
+$link-decoration: none !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration: null !default;
@@ -345,7 +346,7 @@ $container-max-widths: (sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px) !default;
+  xxl: 1232px) !default;
 // scss-docs-end container-max-widths
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -356,7 +357,7 @@ $container-max-widths: (sm: 540px,
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns: 12 !default;
-$grid-gutter-width: 1.5rem !default;
+$grid-gutter-width: rem(32) !default;
 $grid-row-columns: 6 !default;
 
 $gutters: $spacers !default;
@@ -382,9 +383,9 @@ $border-color: $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius: .25rem !default;
-$border-radius-sm: .2rem !default;
-$border-radius-lg: .3rem !default;
+$border-radius: 4px !default;
+$border-radius-sm: 3px !default;
+$border-radius-lg: 22.2266px !default;
 $border-radius-pill: 50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -468,7 +469,7 @@ $line-height-base: 1.5 !default;
 $line-height-sm: 1.25 !default;
 $line-height-lg: 2 !default;
 
-$h1-font-size: $font-size-base * 2.5 !default;
+$h1-font-size: $font-size-base * 1.875 !default;
 $h2-font-size: $font-size-base * 2 !default;
 $h3-font-size: $font-size-base * 1.75 !default;
 $h4-font-size: $font-size-base * 1.5 !default;
@@ -604,11 +605,11 @@ $table-variants: ("primary": shift-color($primary, $table-bg-scale),
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
 // scss-docs-start input-btn-variables
-$input-btn-padding-y: .375rem !default;
-$input-btn-padding-x: .75rem !default;
+$input-btn-padding-y: rem(13) !default;
+$input-btn-padding-x: rem(15) !default;
 $input-btn-font-family: null !default;
-$input-btn-font-size: $font-size-base !default;
-$input-btn-line-height: $line-height-base !default;
+$input-btn-font-size: rem(20) !default;
+$input-btn-line-height: 1 !default;
 
 $input-btn-focus-width: .25rem !default;
 $input-btn-focus-color-opacity: .25 !default;
@@ -663,7 +664,7 @@ $btn-link-hover-color: $link-hover-color !default;
 $btn-link-disabled-color: $gray-600 !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius: $border-radius !default;
+$btn-border-radius: $border-radius-sm !default;
 $btn-border-radius-sm: $border-radius-sm !default;
 $btn-border-radius-lg: $border-radius-lg !default;
 
@@ -705,7 +706,7 @@ $form-label-color: null !default;
 $input-padding-y: $input-btn-padding-y !default;
 $input-padding-x: $input-btn-padding-x !default;
 $input-font-family: $input-btn-font-family !default;
-$input-font-size: $input-btn-font-size !default;
+$input-font-size: rem(16) !default;
 $input-font-weight: $font-weight-base !default;
 $input-line-height: $input-btn-line-height !default;
 
@@ -726,12 +727,12 @@ $input-border-color: $gray-400 !default;
 $input-border-width: $input-btn-border-width !default;
 $input-box-shadow: $box-shadow-inset !default;
 
-$input-border-radius: $border-radius !default;
+$input-border-radius: $border-radius-sm !default;
 $input-border-radius-sm: $border-radius-sm !default;
 $input-border-radius-lg: $border-radius-lg !default;
 
 $input-focus-bg: $input-bg !default;
-$input-focus-border-color: tint-color($component-active-bg, 50%) !default;
+$input-focus-border-color: $primary !default;
 $input-focus-color: $input-color !default;
 $input-focus-width: $input-btn-focus-width !default;
 $input-focus-box-shadow: $input-btn-focus-box-shadow !default;
