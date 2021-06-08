@@ -556,6 +556,16 @@
 			font-weight: normal !important;
 			margin-bottom: 0;
 			&::before {
+				content: "";
+				position: absolute;
+				width: 77.62px;
+				height: 1px;
+				left: -2px;
+				top: -2px;
+				background-color: $danger;
+				transform: rotate(15deg);
+				transform-origin: 0 0;
+
 			}
 		}
 	}
