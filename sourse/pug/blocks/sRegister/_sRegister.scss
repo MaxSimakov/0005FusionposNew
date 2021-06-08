@@ -616,6 +616,7 @@
 		padding-left: 0;
 		margin-bottom: rem(15);
 		.form-check-input {
+			cursor: pointer;
 			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%2313BBF2'/%3E%3C/svg%3E");
 			float: none;
 			display: inline-block;
@@ -634,6 +635,7 @@
 			}
 		}
 		.form-check-label {
+			cursor: pointer;
 			width: auto;
 			padding-left: rem(13);
 			font-weight: bold;
