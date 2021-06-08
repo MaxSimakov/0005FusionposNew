@@ -8,8 +8,16 @@ mixin sRegister(data)
 						+b.link-back(href="#")
 							+icon('arrow-left')
 							img(src="img/svg/logo.svg", alt="")
+						+e.heading.d-lg-none Всего два шага чтобы зарегистрироваться и&nbsp;попробовать FusionPos бесплатно в&nbsp;течении 15&nbsp;дней
+						+e.enter.d-lg-none Уже проходили регистрацию? #[a(href="#") Войдите&nbsp;в&nbsp;аккаунт]
+
 						.section-title
 							h1 Регистрация
+						+b.data-sm.d-lg-none
+							+e.heading
+								+e.SPAN.count.active 1
+								+e.SPAN.count 2
+							+e.title Личные данные
 						+e.subtitle Введите основные данные для вашего аккаунта, чтобы продолжить регистрацию
 						+form-wrap
 							.row.roww-sm
@@ -32,32 +40,158 @@ mixin sRegister(data)
 									+input('Введите пароль', t='password', 'Пароль', name= t)
 								.col-12.col-sm-6.col-lg-12
 									+input('Введите тот же пароль еще раз', t='password', 'Повторите пароль', name= t)
-							+e.btn.btn.btn-primary(href="#" tabindex="0") ПРОДОЛЖИТЬ
+							+e.btn--continue.btn.btn-primary(href="#" tabindex="0") Продолжить
 							+e.polite Нажимая кнопку вы соглашаетесь с #[a(href="#") политикой конфиденциальности] и&nbsp;#[a(href="#") пользовательским соглашением]
 
-				.col-lg-6
+				.col-lg-6.pos-rel
 					+e.right-side
-						+e.heading.d-none.d-lg-block Всего два шага чтобы зарегистрироваться и попробовать FusionPos бесплатно в течении 15 дней
+						+e.heading.d-none.d-lg-block Всего два шага чтобы зарегистрироваться и&nbsp;попробовать FusionPos бесплатно в&nbsp;течении 15&nbsp;дней
 						+b.data-lg.d-none.d-lg-block
 							+e.item.active
 								+e.heading
 									+e.SPAN.count 1
 									+e.SPAN.title Личные данные
-								+e.text Идеально подходит для небольших заведений и проче и прочее
+								+e.text Идеально подходит для небольших заведений и&nbsp;проче и&nbsp;прочее
 							+e.item
 								+e.heading
 									+e.SPAN.count 2
 									+e.SPAN.title Данные о заведении
-								+e.text Идеально подходит для небольших заведений и проче и прочее
-						+e.img-wrap
+								+e.text Идеально подходит для небольших заведений и&nbsp;проче и&nbsp;прочее
+						+e.img-wrap.d-none.d-lg-block
 							img(src="img/svg/tablet.svg", alt="")
-
+		.container
 			.row
 				.col-lg-6
 					+e.left-side
 						+e.copyright © 2021 #[a(href="#") Политика конфиденциальности]
 				.col-lg-6.d-none.d-lg-block
 					+e.right-side
-						+e.enter Уже проходили регистрацию? #[a(href="#") Войдите в аккаунт]
+						+e.enter Уже проходили регистрацию? #[a(href="#") Войдите&nbsp;в&nbsp;аккаунт]
 
 	// end sRegister
+
+
+mixin sRegister2(data)
+	// start sRegister2
+	+b.SECTION.sRegister.section#sRegister&attributes(attributes)
+		.container
+			.row
+				.col-lg-6
+					+b.link-back(href="#")
+						+icon('arrow-left')
+						img(src="img/svg/logo.svg", alt="")
+					+e.heading.d-lg-none Всего два шага чтобы зарегистрироваться и&nbsp;попробовать FusionPos бесплатно в&nbsp;течении 15&nbsp;дней
+					+e.enter.d-lg-none Уже проходили регистрацию? #[a(href="#") Войдите&nbsp;в&nbsp;аккаунт]
+
+					.section-title
+						h1 Регистрация
+					+b.data-sm.d-lg-none
+						+e.heading
+							+e.SPAN.count 1
+							+e.SPAN.count.active 2
+						+e.title Данные о заведении
+					+form-wrap
+						+b.format
+							+e.title Выберите формат заведения:
+							+e.slider--js.swiper-container
+								.swiper-wrapper
+									mixin format-slide(o, t)
+										.swiper-slide
+											input.btn-check(type='radio' name='format' autocomplete='off')&attributes(attributes)
+											label.btn.btn-primary(for!= o)!= t
+									+format-slide(`format1`, `Кофейня`)(checked)#format1
+									+format-slide(`format2`, `Фудтрак`)#format2
+									+format-slide(`format3`, `Ресторан`)#format3
+									+format-slide(`format4`, `Кальянная`)#format4
+									+format-slide(`format5`, `Фаст-фуд`)#format5
+									+format-slide(`format6`, `Пицерия`)#format6
+									+format-slide(`format7`, `Пекарня`)#format7
+									+format-slide(`format8`, `Бар`)#format8
+									+format-slide(`format9`, `Магазин`)#format9
+									+format-slide(`format10`, `Столовая`)#format10
+									+format-slide(`format11`, `Доставка еды`)#format11
+									+format-slide(`format12`, `Другой`)#format12
+
+						+b.rate
+							+e.title Выберите тариф:
+							+e.slider--js.swiper-container
+								.swiper-wrapper
+									.swiper-slide
+										input#rate1.btn-check(type='radio' name='rate' autocomplete='off')
+										label.btn.btn-outline-primary(for= 'rate1')
+											+e.sticker Оптимальный выбор
+											.row
+												.col-lg-4
+													+e.heading
+														+e.SPAN.name ONE
+													+e.price 1790 Р/мес.
+												.col-lg-8.d-flex.align-items-center
+													+e.description Идеально подходит для небольших заведений и проче и прочее
+									.swiper-slide
+										input#rate2.btn-check(type='radio' name='rate' autocomplete='off')
+										label.btn.btn-outline-primary.discount(for= 'rate2')
+											+e.sticker Экономия 210 Р
+											.row
+												.col-lg-4
+													+e.heading
+														+e.SPAN.name LITE
+														+e.SPAN.price--old 2200 Р/мес.
+													+e.price 1990 Р/мес.
+												.col-lg-8.d-flex.align-items-center
+													+e.description Идеально подходит для небольших заведений и проче и прочее
+									.swiper-slide
+										input#rate3.btn-check(type='radio' name='rate' autocomplete='off')
+										label.btn.btn-outline-primary(for= 'rate3')
+											.row
+												.col-lg-4
+													+e.heading
+														+e.SPAN.name STANDART
+													+e.price 2490 Р/мес.
+												.col-lg-8.d-flex.align-items-center
+													+e.description Идеально подходит для небольших заведений и проче и прочее
+
+						+b.capabilities
+							+e.title Возможности:
+							.row
+								.col-sm-6.col-lg-12.col-xl-6
+									.form-check.form-switch
+										input#fastServe.form-check-input(type='checkbox' checked='')
+										label.form-check-label(for='fastServe') Быстрое обслуживание
+								.col-sm-6.col-lg-12.col-xl-6
+									.form-check.form-switch
+										input#tableServ.form-check-input(type='checkbox')
+										label.form-check-label(for='tableServ') Обслуживание у столика
+								.col-sm-6.col-lg-12.col-xl-6
+									.form-check.form-switch.mb-0
+										input#delivery.form-check-input(type='checkbox')
+										label.form-check-label(for='delivery') Доставка
+								
+						+e.promo(href="#") У меня есть промокод
+						+e.btn--register.btn.btn-primary(href="#" tabindex="0") Зарегистрироваться
+
+				.col-lg-6.pos-rel
+					+e.right-side
+						+e.heading.d-none.d-lg-block Всего два шага чтобы зарегистрироваться и&nbsp;попробовать FusionPos бесплатно в&nbsp;течении 15&nbsp;дней
+						+b.data-lg.d-none.d-lg-block
+							+e.item
+								+e.heading
+									+e.SPAN.count 1
+									+e.SPAN.title Личные данные
+								+e.text Идеально подходит для небольших заведений и&nbsp;проче и&nbsp;прочее
+							+e.item.active
+								+e.heading
+									+e.SPAN.count 2
+									+e.SPAN.title Данные о заведении
+								+e.text Идеально подходит для небольших заведений и&nbsp;проче и&nbsp;прочее
+						+e.img-wrap.d-none.d-lg-block
+							img(src="img/svg/tablet.svg", alt="")
+		.container
+			.row
+				.col-lg-6
+					+e.left-side
+						+e.copyright © 2021 #[a(href="#") Политика конфиденциальности]
+				.col-lg-6.d-none.d-lg-block
+					+e.right-side
+						+e.enter Уже проходили регистрацию? #[a(href="#") Войдите&nbsp;в&nbsp;аккаунт]
+
+	// end sRegister2

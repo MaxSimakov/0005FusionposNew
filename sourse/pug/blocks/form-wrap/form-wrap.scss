@@ -21,6 +21,7 @@
 
 	&__btn {
 		cursor: pointer;
+		text-transform: uppercase;
 		&:hover, &:active, &:focus {
 			background-color: transparent;
 			box-shadow: 0 0 0 0.25rem rgba($color: $primary, $alpha: 0.2);

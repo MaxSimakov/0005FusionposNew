@@ -3,14 +3,24 @@
 	--sPT: #{rem(16)};
 	--sPB: #{rem(0)};
 	--sTPB: #{rem(0)};
+	// min-height: 100vh;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: space-between;
 	@include media-breakpoint-up(lg) {
 		--sPT: #{rem(38)};
-		--sPB: #{rem(43)};
+		--sPB: #{rem(44)};
 		--sTPB: #{rem(30)};
 	}
 	position: relative;
 	overflow: hidden;
-
+	.section-title {
+		h1 {
+			@include media-breakpoint-down(lg) {
+				margin-bottom: rem(16);
+			}
+		}
+	}
 	&__left-side {
 		@include media-breakpoint-up(lg) {
 			max-width: rem(470);
@@ -29,16 +39,44 @@
 	}
 
 	&__subtitle {
-		margin-bottom: rem(20);
+		font-size: rem(14);
+		margin-bottom: rem(14);
+		@include media-breakpoint-up(lg) {
+			font-size: rem(16);
+			margin-bottom: rem(20);
+		}
 	}
 
 	&__heading {
-		font-weight: 500;
-		font-size: rem(20);
-		line-height: 140%;
+		position: relative;
 		color: $white;
-		padding-top: rem(18);
-		margin-bottom: 35px;
+		font-weight: 500;
+		@include media-breakpoint-down(lg) {
+			margin-left: rem(-16);
+			margin-right: rem(-16);
+			padding: rem(18) rem(109) rem(24) rem(16);
+			margin-bottom: rem(20);
+			background-image: $gradient;
+			background-size: cover;
+			border-radius: $border-radius-lg;
+			&::before {
+				content: "";
+				position: absolute;
+				background-image: url(../img/svg/waves-sm.svg);
+				background-repeat: no-repeat;
+				background-position: 0 center;
+				width: rem(104);
+				height: 100%;
+				right: 0;
+				top: 0;
+			}
+		}
+		@include media-breakpoint-up(lg) {
+			font-size: rem(20);
+			line-height: 140%;
+			padding-top: rem(18);
+			margin-bottom: 35px;
+		}
 	}
 	&__copyright {
 		position: relative;
@@ -62,11 +100,21 @@
 		}
 	}
 	&__enter {
-		a {
-			color: $white;
-			&:hover,
-			&:active {
-				color: shift-color($white, 20%);
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: (17 / 14);
+		margin-bottom: rem(16);
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+			font-weight: 400;
+			font-size: rem(16);
+			line-height: 150%;
+			a {
+				color: $white;
+				&:hover,
+				&:active {
+					color: shift-color($white, 20%);
+				}
 			}
 		}
 	}
@@ -75,15 +123,26 @@
 		&__btn {
 			@include mt;
 			display: block;
-			margin-top: rem(24);
-			margin-bottom: rem(33);
 			width: 100%;
+			max-width: 288px;
+			margin-left: auto;
+			margin-right: auto;
 
-			@media (min-width: 350px) {
-				display: inline-block;
+			@media (min-width: 450px) {
 				margin-left: 0;
 				margin-right: 0;
 				max-width: 270px;
+			}
+
+			&--continue {
+				margin-top: rem(14);
+				margin-bottom: rem(33);
+			}
+			&--register {
+				margin-bottom: rem(27);
+				@include media-breakpoint-up(lg) {
+					margin-bottom: rem(69);
+				}
 			}
 		}
 		.small {
@@ -107,14 +166,45 @@
 				max-width: rem(265);
 			}
 			@include media-breakpoint-up(lg) {
-				margin-bottom: rem(160);
+				margin-bottom: rem(81);
+			}
+			@include media-breakpoint-up(xl) {
+				margin-bottom: rem(116);
+			}
+			@include media-breakpoint-up(xxl) {
+				margin-bottom: rem(166);
 			}
 		}
+		&__promo {
+			display: inline-block;
+			margin-bottom: rem(21);
+			@include media-breakpoint-up(lg) {
+				margin-bottom: rem(29);
+			}
+		}
+	}
+
+	.pos-rel {
+		position: relative;
 	}
 
 	&__img-wrap {
 		max-width: rem(400);
 		margin-left: auto;
+		@include media-breakpoint-up(lg) {
+			&::before {
+				content: url(../img/svg/waves.svg);
+				position: absolute;
+				width: 100%;
+				height: 59.5%;
+				left: 0;
+				top: 40.5%;
+				// width: 50vw;
+				// height: 520px;
+				// left: 0;
+				// top: 393px;
+			}
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -146,7 +236,10 @@
 .link-back {
 	display: inline-block;
 	vertical-align: middle;
-	margin-bottom: rem(35);
+	margin-bottom: rem(15);
+	@include media-breakpoint-up(lg) {
+		margin-bottom: rem(35);
+	}
 	&:hover,
 	&:active {
 		.icon-arrow-left {
@@ -158,7 +251,10 @@
 		font-size: rem(16);
 		fill: transparent;
 		stroke: #000;
-		margin-right: rem(47);
+		margin-right: rem(19);
+		@include media-breakpoint-up(lg) {
+			margin-right: rem(47);
+		}
 	}
 	img {
 		max-width: rem(121);
@@ -195,7 +291,7 @@
 		width: 288px;
 		background-color: $primary;
 		color: $white;
-		padding: rem(13);
+		padding: rem(10) rem(13);
 		border-radius: $border-radius $border-radius-lg $border-radius $border-radius-lg;
 
 		position: absolute;
@@ -220,9 +316,12 @@
 
 .data-lg {
 	color: $white;
-	margin-bottom: rem(150);
 	max-width: rem(390);
 	margin-left: auto;
+	margin-bottom: rem(130);
+	@include media-breakpoint-up(xxl) {
+		margin-bottom: rem(150);
+	}
 	&__count {
 		display: inline-flex;
 		align-items: center;
@@ -260,5 +359,286 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: rem(7);
+	}
+}
+.data-sm {
+	margin-bottom: rem(11);
+	&__count {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(32);
+		height: rem(32);
+		padding: rem(5);
+		font-weight: bold;
+		font-size: rem(14);
+		line-height: 1;
+		border-radius: $border-radius;
+		color: $body-color;
+		margin-right: rem(8);
+		background-color: transparent;
+		border: 1px solid $body-color;
+		&.active {
+			color: $white;
+			border: 1px solid $danger;
+			background-color: $danger;
+		}
+	}
+	&__title {
+		font-weight: 500;
+		font-size: rem(20);
+		line-height: 140%;
+	}
+	&__heading {
+		margin-bottom: rem(20);
+	}
+}
+
+.format {
+	margin-bottom: rem(13);
+	@include media-breakpoint-up(sm) {
+		margin-bottom: rem(5);
+	}
+	@include media-breakpoint-up(lg) {
+		margin-bottom: rem(16);
+		max-width: rem(470);
+		margin-right: auto;
+	}
+	.btn-primary {
+		@include mt;
+		color: #000;
+		background-color: #f3f3f3;
+		border-color: #f3f3f3;
+		padding: rem(7);
+		font-weight: bold;
+		font-size: rem(16);
+		line-height: 150%;
+		border-radius: $border-radius;
+	}
+
+	.btn-check:active + .btn-primary,
+	.btn-check:checked + .btn-primary,
+	.btn-primary.active,
+	.btn-primary:active {
+		color: $white;
+	}
+
+	.btn-check:focus + .btn,
+	.btn:focus {
+		box-shadow: none;
+	}
+
+	&__title {
+		font-size: rem(14);
+		margin-bottom: rem(14);
+		@include media-breakpoint-up(lg) {
+			font-size: rem(16);
+			margin-bottom: rem(15);
+		}
+	}
+
+	&__slider {
+		overflow: visible;
+		@include media-breakpoint-up(sm) {
+			overflow: hidden;
+		}
+		.swiper-wrapper {
+			@include media-breakpoint-up(sm) {
+				transform: none !important;
+				flex-wrap: wrap;
+				max-width: rem(450);
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			@include media-breakpoint-up(md) {
+				max-width: rem(600);
+			}
+
+			.swiper-slide {
+				display: inline-block !important;
+				width: auto !important;
+				@include media-breakpoint-up(sm) {
+					margin-bottom: rem(8);
+				}
+			}
+		}
+	}
+}
+
+.rate {
+	margin-bottom: rem(15);
+	@include media-breakpoint-up(lg) {
+		margin-bottom: rem(20);
+		max-width: rem(470);
+		margin-right: auto;
+	}
+
+	&__title {
+		font-size: rem(14);
+		margin-bottom: rem(6.5);
+		@include media-breakpoint-up(lg) {
+			font-size: rem(16);
+		}
+	}
+
+	&__heading {
+		display: flex;
+		align-items: center;
+	}
+
+	.btn {
+		text-align: left;
+		padding: rem(15) rem(17);
+		position: relative;
+		box-shadow: none !important;
+		border: 1px solid $gray-400;
+		&:hover {
+			background-color: rgba(19, 187, 242, 0.1);
+		}
+
+		.row {
+			@include roww(0);
+		}
+		&.discount {
+			.rate__sticker {
+				background-color: $danger;
+			}
+			.rate__price {
+				color: $danger;
+				font-weight: bold;
+				font-size: 20px;
+				line-height: 24px;
+			}
+		}
+	}
+
+	.btn-check:active + .btn-outline-primary,
+	.btn-check:checked + .btn-outline-primary,
+	.btn-outline-primary.active,
+	.btn-outline-primary:active {
+		background-color: rgba(19, 187, 242, 0.1);
+	}
+
+	&__sticker {
+		position: absolute;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		font-size: rem(11);
+		line-height: 1;
+		background-color: $primary;
+		color: $white;
+		top: rem(-8);
+		right: rem(16);
+		padding: rem(2) rem(3) rem(3) rem(3);
+		border-radius: $border-radius;
+	}
+
+	&__name {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: rem(16);
+		line-height: 150%;
+		margin-right: rem(15.5);
+		color: $primary;
+	}
+	&__price {
+		font-size: rem(16);
+		line-height: 150%;
+		color: $body-color;
+		&--old {
+			position: relative;
+			color: $body-color !important;
+			font-size: rem(13) !important;
+			line-height: (19 / 13) !important;
+			font-weight: normal !important;
+			margin-bottom: 0;
+			&::before {
+			}
+		}
+	}
+	&__description {
+		font-weight: normal;
+		font-size: rem(13);
+		line-height: (16 / 13);
+		margin: rem(5.5) 0;
+		color: $body-color !important;
+		@include media-breakpoint-up(lg) {
+			margin: 0 0 0 rem(20);
+		}
+	}
+
+	&__slider {
+		overflow: visible;
+		padding-top: rem(10);
+		@include media-breakpoint-up(lg) {
+			overflow: hidden;
+		}
+		.swiper-wrapper {
+			@include media-breakpoint-up(lg) {
+				transform: none !important;
+				flex-wrap: wrap;
+			}
+			.swiper-slide {
+				display: inline-block !important;
+				max-width: rem(215) !important;
+				@include media-breakpoint-up(lg) {
+					&:not(:last-child) {
+						margin-bottom: rem(16);
+					}
+				}
+				@include media-breakpoint-up(lg) {
+					max-width: 100% !important;
+				}
+			}
+		}
+	}
+}
+
+.capabilities {
+	margin-bottom: rem(21);
+	@include media-breakpoint-up(lg) {
+		margin-bottom: rem(35);
+	}
+
+	&__title {
+		font-size: rem(14);
+		margin-bottom: rem(15);
+		@include media-breakpoint-up(lg) {
+			margin-bottom: rem(20);
+			font-size: rem(16);
+		}
+	}
+	.form-check {
+		display: flex;
+		padding-left: 0;
+		margin-bottom: rem(15);
+		.form-check-input {
+			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%2313BBF2'/%3E%3C/svg%3E");
+			float: none;
+			display: inline-block;
+			border-radius: 150px;
+			min-width: 42px;
+			height: rem(24);
+			margin-top: 0;
+			margin-left: 0;
+			box-shadow: none !important;
+			border-color: #f3f3f3;
+			background-color: #f3f3f3;
+			&:checked {
+				background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
+				border-color: $primary;
+				background-color: $primary;
+			}
+		}
+		.form-check-label {
+			width: auto;
+			padding-left: rem(13);
+			font-weight: bold;
+			font-size: rem(16);
+			line-height: 150%;
+		}
 	}
 }
